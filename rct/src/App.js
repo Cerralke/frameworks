@@ -14,10 +14,19 @@ class App extends Component {
       data: null,
     };
   }
+
   componentDidMount() {
     fetch('http://localhost:1337/datas')
       .then(response => response.json())
-      .then(data => this.setState({ data }));
+      .then(data => this.generateView(data));
+  }
+
+  generateView(data) {
+    console.log(data)
+    data.items.forEach(item => {
+      console.log(item)
+    })
+    this.setState({ data })
   }
 }
 
